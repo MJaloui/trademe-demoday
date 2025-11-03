@@ -1,22 +1,23 @@
-# TradeMe Demo Day
+# TradeMe
+
+<img width="1079" height="735" alt="image" src="https://github.com/user-attachments/assets/d2b46c99-8a84-4336-a62a-29da796c00ac" />
 
 A fullstack application for trading clothing items.
 
 ## Project Structure
 
 This project contains:
-- **HTML/CSS Design & Layout** - All views and styling (no functionality yet)
-- **MongoDB Setup** - Database connection and Item model schema
-- **Basic Server Setup** - Express server ready for logic implementation
+- **HTML/CSS Design & Layout**
+- **MongoDB Setup** 
+- **Basic Server Setup** 
 
-## Features (Design Only - Logic to be added)
+## Features (CRUD)
 
-- View all items in a grid layout
 - Filter items by category (Tops, Bottoms, Shoes, Accessories, Outerwear)
 - Add new items with brand, size, category, image URL
 - Edit/Delete your items
 - "I'm Interested" button to show contact information
-- Simple username input (no passwords)
+- Simple username input 
 
 ## MongoDB Collections
 
@@ -50,10 +51,5 @@ This project contains:
 
 5. Open browser to `http://localhost:8080`
 
-## Next Steps
 
-- Add logic to routes.js for CRUD operations
-- Implement category filtering functionality
-- Add username session management
-- Connect forms to database operations
 
