@@ -2,7 +2,7 @@
 
 <img width="1079" height="735" alt="image" src="https://github.com/user-attachments/assets/d2b46c99-8a84-4336-a62a-29da796c00ac" />
 
-A fullstack application for trading clothing items.
+A fullstack application for trading clothing, shoes, sneakers, accessories, and handbags.
 
 ## Project Structure
 
