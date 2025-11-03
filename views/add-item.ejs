@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+    <title>Add Item - TradeMe Demo Day</title>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+
+    <div class="page-header">
+        <h1><i class="fa fa-plus"></i> Add New Item</h1>
+        <a href="/" class="btn btn-default">Back to All Items</a>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="well">
+                <form action="/add-item" method="POST" id="addItemForm">
+                    <div class="form-group">
+                        <label for="username">Your Username *</label>
+                        <input type="text" class="form-control" id="username" name="username" required placeholder="Enter your username">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="brand">Brand *</label>
+                        <input type="text" class="form-control" id="brand" name="brand" required placeholder="e.g., Nike, Adidas, H&M">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="size">Size *</label>
+                        <select class="form-control" id="size" name="size" required>
+                            <option value="">Select size</option>
+                            <option value="XS">XS</option>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                            <option value="XXL">XXL</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">Category *</label>
+                        <select class="form-control" id="category" name="category" required>
+                            <option value="">Select category</option>
+                            <option value="tops">Tops</option>
+                            <option value="bottoms">Bottoms</option>
+                            <option value="shoes">Shoes</option>
+                            <option value="accessories">Accessories</option>
+                            <option value="outerwear">Outerwear</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="imageURL">Image URL *</label>
+                        <input type="url" class="form-control" id="imageURL" name="imageURL" required placeholder="https://example.com/image.jpg">
+                        <small class="help-block">Enter the full URL to an image of your item</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactInfo">Contact Information *</label>
+                        <input type="text" class="form-control" id="contactInfo" name="contactInfo" required placeholder="Email or phone number">
+                        <small class="help-block">This will be shown when someone clicks "I'm Interested"</small>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-success btn-lg">
+                            <i class="fa fa-check"></i> Add Item
+                        </button>
+                        <a href="/" class="btn btn-default btn-lg">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+

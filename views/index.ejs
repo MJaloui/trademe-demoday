@@ -1,0 +1,185 @@
+<!-- //used class project as a template, used co pilot to help. -->
+
+<!doctype html>
+<html>
+
+<head>
+    <title>TradeME - Trade Items</title>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- Hero Banner inspired by provided comps -->
+        <section class="hero">
+            <div class="hero-copy">
+                <h1 class="hero-title">New Style Drops</h1>
+                <p class="hero-sub">Replace what's sitting in your closet.</p>
+                <a href="/add-item" class="btn btn-success btn-lg hero-cta"><i class="fa fa-plus"></i> List Your
+                    Item</a>
+            </div>
+            <div class="hero-art">
+                <div class="hero-circle"></div>
+                <img class="hero-image" src="https://i.pinimg.com/1200x/38/95/53/3895532c883d16ea434928cf0a5e95cf.jpg"
+                    alt="Hero inspiration">
+            </div>
+        </section>
+
+        <div class="page-header text-center">
+            <h1><span class="fa fa-exchange"></span> TradeME</h1>
+            <p class="lead">Trade with others</p>
+        </div>
+
+        <div class="row">
+            <!-- Username Input -->
+            <div class="col-md-12">
+                <div class="well centered-block">
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <label for="username" class="sr-only">Username</label>
+                            <input type="text" class="form-control" id="username" name="username"
+                                placeholder="Enter your username">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Set Username</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Category Filter -->
+            <div class="col-md-12">
+                <div class="filter-section centered-block text-center">
+                    <h3>Filter by Category</h3>
+                    <div class="btn-group filter-btn-group" role="group">
+                        <button type="button" class="btn btn-default filter-btn active" data-category="all">All</button>
+                        <button type="button" class="btn btn-default filter-btn" data-category="tops">Tops</button>
+                        <button type="button" class="btn btn-default filter-btn"
+                            data-category="bottoms">Bottoms</button>
+                        <button type="button" class="btn btn-default filter-btn" data-category="shoes">Shoes</button>
+                        <button type="button" class="btn btn-default filter-btn"
+                            data-category="accessories">Accessories</button>
+                        <button type="button" class="btn btn-default filter-btn"
+                            data-category="outerwear">Outerwear</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Horizontal Showcase inspired by 3rd image -->
+        <section class="showcase">
+            <div class="showcase-strip">
+                <div class="showcase-card">
+                    <img src="https://michaelkors.scene7.com/is/image/MichaelKors/31F5HKNSLI-1220_1?$large$"
+                        alt="Showcase 1">
+                </div>
+                <div class="showcase-card">
+                    <img src="https://i.pinimg.com/1200x/65/91/cb/6591cb09e567955bbfa9de81e9934f47.jpg"
+                        alt="Showcase 2">
+                </div>
+                <div class="showcase-card">
+                    <img src="https://www.samedelman.com/blob/product-images/99900/ec/02/08088/ec0208088_pair_feed1000.jpg"
+                        alt="Showcase 3">
+                </div>
+                <div class="showcase-card">
+                    <img src="https://i.pinimg.com/736x/57/a0/e2/57a0e2873f3444f9b403a372d93bf519.jpg" alt="Showcase 4">
+                </div>
+                <div class="showcase-card">
+                    <img src="https://i.pinimg.com/736x/c1/dd/4f/c1dd4fca4d0b09931f8780aa7d6c87cf.jpg" alt="Showcase 5">
+                </div>
+            </div>
+        </section>
+
+        <!-- <div class="row">
+         //Add Item Button 
+        <div class="col-md-12">
+            <a href="/add-item" class="btn btn-success btn-lg">
+                <i class="fa fa-plus"></i> Add New Item
+            </a>
+        </div>
+    </div> -->
+
+        <div class="row" style="margin-top: 20px;">
+            <!-- Items Grid -->
+            <div class="col-md-12">
+                <div class="items-grid">
+                    <% if (items && items.length> 0) { %>
+                        <% for(var i=0; i<items.length; i++) {%>
+                            <div class="item-card" data-category="<%= items[i].category || 'all' %>">
+                                <div class="item-image">
+                                    <img src="<%= items[i].imageURL || 'https://via.placeholder.com/300x300?text=No+Image' %>"
+                                        alt="<%= items[i].brand %>" class="img-responsive">
+                                </div>
+                                <div class="item-details">
+                                    <h4><strong>
+                                            <%= items[i].brand || 'Brand' %>
+                                        </strong></h4>
+                                    <p><strong>Size:</strong>
+                                        <%= items[i].size || 'N/A' %>
+                                    </p>
+                                    <p><strong>Category:</strong>
+                                        <%= items[i].category || 'N/A' %>
+                                    </p>
+                                    <p><strong>Posted by:</strong>
+                                        <%= items[i].username || 'Anonymous' %>
+                                    </p>
+
+                                    <div class="item-actions">
+                                        <button class="btn btn-info btn-sm interested-btn"
+                                            data-contact="<%= items[i].contactInfo || 'No contact info' %>">
+                                            <i class="fa fa-envelope"></i> I'm Interested
+                                        </button>
+
+                                        <!-- Edit/Delete buttons - only show if item belongs to current user -->
+                                        <div class="owner-actions" style="margin-top: 10px;">
+                                            <a href="/edit-item/<%= items[i]._id %>" class="btn btn-warning btn-sm">
+                                                <i class="fa fa-edit"></i> Edit
+                                            </a>
+                                            <button class="btn btn-danger btn-sm delete-btn"
+                                                data-item-id="<%= items[i]._id %>">
+                                                <i class="fa fa-trash"></i> Delete
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <% } %>
+                                <% } else { %>
+                                    <div class="col-md-12">
+                                        <div class="alert alert-info">
+                                            <h4>No items yet!</h4>
+                                            <p>Be the first to add an item by clicking "List Your Item" above.</p>
+                                        </div>
+                                    </div>
+                                    <% } %>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Info Modal -->
+        <div class="modal fade" id="contactModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Contact Information</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p id="contact-info-display">No contact information available.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+        <script src="main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+    <title>Edit Item - TradeMe Demo Day</title>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+
+    <div class="page-header">
+        <h1><i class="fa fa-edit"></i> Edit Item</h1>
+        <a href="/" class="btn btn-default">Back to All Items</a>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="well">
+                <form action="/edit-item/<%= itemId %>" method="POST" id="editItemForm">
+                    <div class="form-group">
+                        <label for="username">Your Username *</label>
+                        <input type="text" class="form-control" id="username" name="username" required placeholder="Enter your username" value="<%= item ? item.username : '' %>">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="brand">Brand *</label>
+                        <input type="text" class="form-control" id="brand" name="brand" required placeholder="e.g., Nike, Adidas, H&M" value="<%= item ? item.brand : '' %>">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="size">Size *</label>
+                        <select class="form-control" id="size" name="size" required>
+                            <option value="">Select size</option>
+                            <option value="XS" <%= item && item.size === 'XS' ? 'selected' : '' %>>XS</option>
+                            <option value="S" <%= item && item.size === 'S' ? 'selected' : '' %>>S</option>
+                            <option value="M" <%= item && item.size === 'M' ? 'selected' : '' %>>M</option>
+                            <option value="L" <%= item && item.size === 'L' ? 'selected' : '' %>>L</option>
+                            <option value="XL" <%= item && item.size === 'XL' ? 'selected' : '' %>>XL</option>
+                            <option value="XXL" <%= item && item.size === 'XXL' ? 'selected' : '' %>>XXL</option>
+                            <option value="Other" <%= item && item.size === 'Other' ? 'selected' : '' %>>Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">Category *</label>
+                        <select class="form-control" id="category" name="category" required>
+                            <option value="">Select category</option>
+                            <option value="tops" <%= item && item.category === 'tops' ? 'selected' : '' %>>Tops</option>
+                            <option value="bottoms" <%= item && item.category === 'bottoms' ? 'selected' : '' %>>Bottoms</option>
+                            <option value="shoes" <%= item && item.category === 'shoes' ? 'selected' : '' %>>Shoes</option>
+                            <option value="accessories" <%= item && item.category === 'accessories' ? 'selected' : '' %>>Accessories</option>
+                            <option value="outerwear" <%= item && item.category === 'outerwear' ? 'selected' : '' %>>Outerwear</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="imageURL">Image URL *</label>
+                        <input type="url" class="form-control" id="imageURL" name="imageURL" required placeholder="https://example.com/image.jpg" value="<%= item ? item.imageURL : '' %>">
+                        <small class="help-block">Enter the full URL to an image of your item</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactInfo">Contact Information *</label>
+                        <input type="text" class="form-control" id="contactInfo" name="contactInfo" required placeholder="Email or phone number" value="<%= item ? item.contactInfo : '' %>">
+                        <small class="help-block">This will be shown when someone clicks "I'm Interested"</small>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <i class="fa fa-save"></i> Save Changes
+                        </button>
+                        <a href="/" class="btn btn-default btn-lg">Cancel</a>
+                        <button type="button" class="btn btn-danger btn-lg" id="deleteBtn">
+                            <i class="fa fa-trash"></i> Delete Item
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
