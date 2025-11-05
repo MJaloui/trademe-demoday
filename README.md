@@ -7,7 +7,7 @@ A fullstack application for trading clothing, shoes, sneakers, accessories, and 
 ## Project Structure
 
 This project contains:
-- **HTML/CSS, JS, EJS**
+- **EJS, JS, CSS**
 - **MongoDB Setup** 
 - **Basic Server Setup** 
 
